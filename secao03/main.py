@@ -44,6 +44,7 @@ async def post_banda(banda: Banda):
 async def put_banda(banda_id: int, banda: Banda):
     if banda_id in Bandas:
         Bandas[banda_id] = banda
+        banda.id = banda_id
         return banda
     else:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, DETAIL=F'Não existe curso com id {banda_id}')
