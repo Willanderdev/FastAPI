@@ -35,7 +35,9 @@ async def get_banda(banda_id: int):
 
 @app.post('/Bandas')
 async def post_banda(banda: Banda):
-    next_id:int = len(Bandas) + 1
+    next_id = [*Bandas]
+    next_id = next_id[len(next_id)-1]
+    next_id = next_id+1
     Bandas[next_id] = banda
     banda.id = next_id
     return banda
